@@ -1,20 +1,16 @@
-CREATE DATABASE IF NOT EXISTS `sw_exercice4` CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_unicode_ci';
+drop table if exists public.pokemon;
+CREATE TABLE public.pokemon (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(50),
+    type_primaire VARCHAR(50),
+    type_secondaire VARCHAR(50),
+    pv INTEGER,
+    attaque INTEGER,
+    defense INTEGER
+);
 
-USE `sw_exercice4`;
-
-DROP TABLE IF EXISTS `pokemon`;
-CREATE TABLE `pokemon` (
-  `id` int auto_increment,
-  `nom` varchar(64) DEFAULT NULL,
-  `type_primaire` varchar(16) DEFAULT NULL,
-  `type_secondaire` varchar(8) DEFAULT NULL,
-  `pv` int(11) DEFAULT NULL,
-  `attaque` int(11) DEFAULT NULL,
-  `defense` int(11) DEFAULT NULL,
-  primary key (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+-- Insertion des données
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Bulbasaur','Grass','Poison',45,49,49),
 	 ('Ivysaur','Grass','Poison',60,62,63),
 	 ('Venusaur','Grass','Poison',80,82,83),
@@ -25,7 +21,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Charizard','Fire','Flying',78,84,78),
 	 ('Mega Charizard X','Fire','Dragon',78,130,111),
 	 ('Mega Charizard Y','Fire','Flying',78,104,78);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Gigantamax Charizard','Fire','Flying',78,84,78),
 	 ('Squirtle','Water','',44,48,65),
 	 ('Wartortle','Water','',59,63,80),
@@ -36,7 +32,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Metapod','Bug','',50,20,55),
 	 ('Butterfree','Bug','Flying',60,45,50),
 	 ('Gigantamax Butterfree','Bug','Flying',60,45,50);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Weedle','Bug','Poison',40,35,30),
 	 ('Kakuna','Bug','Poison',45,25,50),
 	 ('Beedrill','Bug','Poison',65,90,40),
@@ -47,7 +43,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Mega Pidgeot','Normal','Flying',83,80,80),
 	 ('Rattata','Normal','',30,56,35),
 	 ('Alolan Rattata','Dark','Normal',30,56,35);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Raticate','Normal','',55,81,60),
 	 ('Alolan Raticate','Dark','Normal',75,71,70),
 	 ('Spearow','Normal','Flying',40,60,30),
@@ -58,7 +54,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Gigantamax Pikachu','Electric','',35,55,40),
 	 ('Raichu','Electric','',60,90,55),
 	 ('Alolan Raichu','Electric','Psychic',60,85,50);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Sandshrew','Ground','',50,75,85),
 	 ('Alolan Sandshrew','Ice','Steel',50,75,90),
 	 ('Sandslash','Ground','',75,100,110),
@@ -69,7 +65,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Nidoran♂','Poison','',46,57,40),
 	 ('Nidorino','Poison','',61,72,57),
 	 ('Nidoking','Poison','Ground',81,102,77);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Clefairy','Fairy','',70,45,48),
 	 ('Clefable','Fairy','',95,70,73),
 	 ('Vulpix','Fire','',38,41,40),
@@ -80,7 +76,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Wigglytuff','Normal','Fairy',140,70,45),
 	 ('Zubat','Poison','Flying',40,45,35),
 	 ('Golbat','Poison','Flying',75,80,70);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Oddish','Grass','Poison',45,50,55),
 	 ('Gloom','Grass','Poison',60,65,70),
 	 ('Vileplume','Grass','Poison',75,80,85),
@@ -91,7 +87,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Diglett','Ground','',10,55,25),
 	 ('Alolan Diglett','Ground','Steel',10,55,30),
 	 ('Dugtrio','Ground','',35,80,50);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Alolan Dugtrio','Ground','Steel',35,100,60),
 	 ('Meowth','Normal','',40,45,35),
 	 ('Gigantamax Meowth','Normal','',40,45,35),
@@ -102,7 +98,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Psyduck','Water','',50,52,48),
 	 ('Golduck','Water','',80,82,78),
 	 ('Mankey','Fighting','',40,80,35);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Primeape','Fighting','',65,105,60),
 	 ('Growlithe','Fire','',55,70,45),
 	 ('Arcanine','Fire','',90,110,80),
@@ -113,7 +109,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Kadabra','Psychic','',40,35,30),
 	 ('Alakazam','Psychic','',55,50,45),
 	 ('Mega Alakazam','Psychic','',55,50,65);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Machop','Fighting','',70,80,50),
 	 ('Machoke','Fighting','',80,100,70),
 	 ('Machamp','Fighting','',90,130,80),
@@ -124,7 +120,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Tentacool','Water','Poison',40,40,35),
 	 ('Tentacruel','Water','Poison',80,70,65),
 	 ('Geodude','Rock','Ground',40,80,100);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Alolan Geodude','Rock','Electric',40,80,100),
 	 ('Graveler','Rock','Ground',55,95,115),
 	 ('Alolan Graveler','Rock','Electric',55,95,115),
@@ -135,7 +131,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Rapidash','Fire','',65,100,70),
 	 ('Galarian Rapidash','Psychic','Fairy',65,100,70),
 	 ('Slowpoke','Water','Psychic',90,65,65);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Galarian Slowpoke','Psychic','',90,65,65),
 	 ('Slowbro','Water','Psychic',95,75,110),
 	 ('Galarian Slowbro','Poison','Psychic',95,100,95),
@@ -146,7 +142,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Galarian Farfetched','Fighting','',52,95,55),
 	 ('Doduo','Normal','Flying',35,85,45),
 	 ('Dodrio','Normal','Flying',60,110,70);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Seel','Water','',65,45,55),
 	 ('Dewgong','Water','Ice',90,70,80),
 	 ('Grimer','Poison','',80,80,50),
@@ -157,7 +153,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Cloyster','Water','Ice',50,95,180),
 	 ('Gastly','Ghost','Poison',30,35,30),
 	 ('Haunter','Ghost','Poison',45,50,45);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Gengar','Ghost','Poison',60,65,60),
 	 ('Mega Gengar','Ghost','Poison',60,65,80),
 	 ('Gigantamax Gengar','Ghost','Poison',60,65,60),
@@ -168,7 +164,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Kingler','Water','',55,130,115),
 	 ('Gigantamax Kingler','Water','',55,130,115),
 	 ('Voltorb','Electric','',40,30,50);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Electrode','Electric','',60,50,70),
 	 ('Exeggcute','Grass','Psychic',60,40,80),
 	 ('Exeggutor','Grass','Psychic',95,95,85),
@@ -179,7 +175,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Hitmonlee','Fighting','',50,120,53),
 	 ('Hitmonchan','Fighting','',50,105,79),
 	 ('Lickitung','Normal','',90,55,75);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Koffing','Poison','',40,65,95),
 	 ('Weezing','Poison','',65,90,120),
 	 ('Galarian Weezing','Poison','Fairy',65,90,120),
@@ -190,7 +186,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Kangaskhan','Normal','',105,95,80),
 	 ('Mega Kangaskhan','Normal','',105,125,100),
 	 ('Horsea','Water','',30,40,70);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Seadra','Water','',55,65,95),
 	 ('Goldeen','Water','',45,67,60),
 	 ('Seaking','Water','',80,92,65),
@@ -201,7 +197,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Scyther','Bug','Flying',70,110,80),
 	 ('Jynx','Ice','Psychic',65,50,35),
 	 ('Electabuzz','Electric','',65,83,57);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Magmar','Fire','',65,95,57),
 	 ('Pinsir','Bug','',65,125,100),
 	 ('Mega Pinsir','Bug','Flying',65,155,120),
@@ -212,7 +208,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Lapras','Water','Ice',130,85,80),
 	 ('Gigantamax Lapras','Water','Ice',130,85,80),
 	 ('Ditto','Normal','',48,48,48);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Eevee','Normal','',55,55,50),
 	 ('Gigantamax Eevee','Normal','',55,55,50),
 	 ('Vaporeon','Water','',130,65,60),
@@ -223,7 +219,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Omastar','Rock','Water',70,60,125),
 	 ('Kabuto','Rock','Water',30,80,90),
 	 ('Kabutops','Rock','Water',60,115,105);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Aerodactyl','Rock','Flying',80,105,65),
 	 ('Mega Aerodactyl','Rock','Flying',80,135,85),
 	 ('Snorlax','Normal','',160,110,65),
@@ -234,7 +230,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Galarian Zapdos','Fighting','Flying',90,125,90),
 	 ('Moltres','Fire','Flying',90,100,90),
 	 ('Galarian Moltres','Dark','Flying',90,85,90);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Dratini','Dragon','',41,64,45),
 	 ('Dragonair','Dragon','',61,84,65),
 	 ('Dragonite','Dragon','Flying',91,134,95),
@@ -245,7 +241,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Chikorita','Grass','',45,49,65),
 	 ('Bayleef','Grass','',60,62,80),
 	 ('Meganium','Grass','',80,82,100);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Cyndaquil','Fire','',39,52,43),
 	 ('Quilava','Fire','',58,64,58),
 	 ('Typhlosion','Fire','',78,84,78),
@@ -256,7 +252,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Furret','Normal','',85,76,64),
 	 ('Hoothoot','Normal','Flying',60,30,30),
 	 ('Noctowl','Normal','Flying',100,50,50);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Ledyba','Bug','Flying',40,20,30),
 	 ('Ledian','Bug','Flying',55,35,50),
 	 ('Spinarak','Bug','Poison',40,60,40),
@@ -267,7 +263,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Pichu','Electric','',20,40,15),
 	 ('Cleffa','Fairy','',50,25,28),
 	 ('Igglybuff','Normal','Fairy',90,30,15);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Togepi','Fairy','',35,20,65),
 	 ('Togetic','Fairy','Flying',55,40,85),
 	 ('Natu','Psychic','Flying',40,50,45),
@@ -278,7 +274,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Mega Ampharos','Electric','Dragon',90,95,105),
 	 ('Bellossom','Grass','',75,80,95),
 	 ('Marill','Water','Fairy',70,20,50);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Azumarill','Water','Fairy',100,50,80),
 	 ('Sudowoodo','Rock','',70,100,115),
 	 ('Politoed','Water','',90,75,75),
@@ -289,7 +285,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Sunkern','Grass','',30,30,30),
 	 ('Sunflora','Grass','',75,75,55),
 	 ('Yanma','Bug','Flying',65,65,45);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Wooper','Water','Ground',55,45,45),
 	 ('Quagsire','Water','Ground',95,85,85),
 	 ('Espeon','Psychic','',65,65,60),
@@ -300,7 +296,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Misdreavus','Ghost','',60,60,60),
 	 ('Unown','Psychic','',48,72,48),
 	 ('Wobbuffet','Psychic','',190,33,58);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Girafarig','Normal','Psychic',70,80,65),
 	 ('Pineco','Bug','',50,65,90),
 	 ('Forretress','Bug','Steel',75,90,140),
@@ -311,7 +307,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Snubbull','Fairy','',60,80,50),
 	 ('Granbull','Fairy','',90,120,75),
 	 ('Qwilfish','Water','Poison',65,95,75);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Scizor','Bug','Steel',70,130,100),
 	 ('Mega Scizor','Bug','Steel',70,150,140),
 	 ('Shuckle','Bug','Rock',20,10,230),
@@ -322,7 +318,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Ursaring','Normal','',90,130,75),
 	 ('Slugma','Fire','',40,40,40),
 	 ('Magcargo','Fire','Rock',50,50,120);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Swinub','Ice','Ground',50,50,40),
 	 ('Piloswine','Ice','Ground',100,100,80),
 	 ('Corsola','Water','Rock',55,55,85),
@@ -333,7 +329,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Mantine','Water','Flying',65,40,70),
 	 ('Skarmory','Steel','Flying',65,80,140),
 	 ('Houndour','Dark','Fire',45,60,30);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Houndoom','Dark','Fire',75,90,50),
 	 ('Mega Houndoom','Dark','Fire',75,90,90),
 	 ('Kingdra','Water','Dragon',75,95,95),
@@ -344,7 +340,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Smeargle','Normal','',55,20,35),
 	 ('Tyrogue','Fighting','',35,35,35),
 	 ('Hitmontop','Fighting','',50,95,95);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Smoochum','Ice','Psychic',45,30,15),
 	 ('Elekid','Electric','',45,63,37),
 	 ('Magby','Fire','',45,75,37),
@@ -355,7 +351,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Suicune','Water','',100,75,115),
 	 ('Larvitar','Rock','Ground',50,64,50),
 	 ('Pupitar','Rock','Ground',70,84,70);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Tyranitar','Rock','Dark',100,134,110),
 	 ('Mega Tyranitar','Rock','Dark',100,164,150),
 	 ('Lugia','Psychic','Flying',106,90,130),
@@ -366,7 +362,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Sceptile','Grass','',70,85,65),
 	 ('Mega Sceptile','Grass','Dragon',70,110,75),
 	 ('Torchic','Fire','',45,60,40);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Combusken','Fire','Fighting',60,85,60),
 	 ('Blaziken','Fire','Fighting',80,120,70),
 	 ('Mega Blaziken','Fire','Fighting',80,160,80),
@@ -377,7 +373,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Poochyena','Dark','',35,55,35),
 	 ('Mightyena','Dark','',70,90,70),
 	 ('Zigzagoon','Normal','',38,30,41);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Galarian Zigzagoon','Dark','Normal',38,30,41),
 	 ('Linoone','Normal','',78,70,61),
 	 ('Galarian Linoone','Dark','Normal',78,70,61),
@@ -388,7 +384,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Dustox','Bug','Poison',60,50,70),
 	 ('Lotad','Water','Grass',40,30,30),
 	 ('Lombre','Water','Grass',60,50,50);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Ludicolo','Water','Grass',80,70,70),
 	 ('Seedot','Grass','',40,40,50),
 	 ('Nuzleaf','Grass','Dark',70,70,40),
@@ -399,7 +395,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Pelipper','Water','Flying',60,50,100),
 	 ('Ralts','Psychic','Fairy',28,25,25),
 	 ('Kirlia','Psychic','Fairy',38,35,35);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Gardevoir','Psychic','Fairy',68,65,65),
 	 ('Mega Gardevoir','Psychic','Fairy',68,85,65),
 	 ('Surskit','Bug','Water',40,30,32),
@@ -410,7 +406,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Vigoroth','Normal','',80,80,80),
 	 ('Slaking','Normal','',150,160,100),
 	 ('Nincada','Bug','Ground',31,45,90);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Ninjask','Bug','Flying',61,90,45),
 	 ('Shedinja','Bug','Ghost',1,90,45),
 	 ('Whismur','Normal','',64,51,23),
@@ -421,7 +417,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Azurill','Normal','Fairy',50,20,40),
 	 ('Nosepass','Rock','',30,45,135),
 	 ('Skitty','Normal','',50,45,45);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Delcatty','Normal','',70,65,65),
 	 ('Sableye','Dark','Ghost',50,75,75),
 	 ('Mega Sableye','Dark','Ghost',50,85,125),
@@ -432,7 +428,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Aggron','Steel','Rock',70,110,180),
 	 ('Mega Aggron','Steel','',70,140,230),
 	 ('Meditite','Fighting','Psychic',30,40,55);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Medicham','Fighting','Psychic',60,60,75),
 	 ('Mega Medicham','Fighting','Psychic',60,100,85),
 	 ('Electrike','Electric','',40,45,40),
@@ -443,7 +439,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Volbeat','Bug','',65,73,55),
 	 ('Illumise','Bug','',65,47,55),
 	 ('Roselia','Grass','Poison',50,60,45);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Gulpin','Poison','',70,43,53),
 	 ('Swalot','Poison','',100,73,83),
 	 ('Carvanha','Water','Dark',45,90,20),
@@ -454,7 +450,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Numel','Fire','Ground',60,60,40),
 	 ('Camerupt','Fire','Ground',70,100,70),
 	 ('Mega Camerupt','Fire','Ground',70,120,100);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Torkoal','Fire','',70,85,140),
 	 ('Spoink','Psychic','',60,25,35),
 	 ('Grumpig','Psychic','',80,45,65),
@@ -465,7 +461,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Cacnea','Grass','',50,85,40),
 	 ('Cacturne','Grass','Dark',70,115,60),
 	 ('Swablu','Normal','Flying',45,40,60);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Altaria','Dragon','Flying',75,70,90),
 	 ('Mega Altaria','Dragon','Fairy',75,110,110),
 	 ('Zangoose','Normal','',73,115,60),
@@ -476,7 +472,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Whiscash','Water','Ground',110,78,73),
 	 ('Corphish','Water','',43,80,65),
 	 ('Crawdaunt','Water','Dark',63,120,85);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Baltoy','Ground','Psychic',40,40,55),
 	 ('Claydol','Ground','Psychic',60,70,105),
 	 ('Lileep','Rock','Grass',66,41,77),
@@ -487,7 +483,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Milotic','Water','',95,60,79),
 	 ('Castform','Normal','',70,70,70),
 	 ('Kecleon','Normal','',60,90,70);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Shuppet','Ghost','',44,75,35),
 	 ('Banette','Ghost','',64,115,65),
 	 ('Mega Banette','Ghost','',64,165,75),
@@ -498,7 +494,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Absol','Dark','',65,130,60),
 	 ('Mega Absol','Dark','',65,150,60),
 	 ('Wynaut','Psychic','',95,23,48);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Snorunt','Ice','',50,50,50),
 	 ('Glalie','Ice','',80,80,80),
 	 ('Mega Glalie','Ice','',80,120,80),
@@ -509,7 +505,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Huntail','Water','',55,104,105),
 	 ('Gorebyss','Water','',55,84,105),
 	 ('Relicanth','Water','Rock',100,90,130);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Luvdisc','Water','',43,30,55),
 	 ('Bagon','Dragon','',45,75,60),
 	 ('Shelgon','Dragon','',65,95,100),
@@ -520,7 +516,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Metagross','Steel','Psychic',80,135,130),
 	 ('Mega Metagross','Steel','Psychic',80,145,150),
 	 ('Regirock','Rock','',80,100,200);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Regice','Ice','',80,50,100),
 	 ('Registeel','Steel','',80,75,150),
 	 ('Latias','Dragon','Psychic',80,80,90),
@@ -531,7 +527,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Primal Kyogre','Water','',100,150,90),
 	 ('Groudon','Ground','',100,150,140),
 	 ('Primal Groudon','Ground','Fire',100,180,160);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Rayquaza','Dragon','Flying',105,150,90),
 	 ('Mega Rayquaza','Dragon','Flying',105,180,100),
 	 ('Jirachi','Steel','Psychic',100,100,100),
@@ -542,7 +538,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Turtwig','Grass','',55,68,64),
 	 ('Grotle','Grass','',75,89,85),
 	 ('Torterra','Grass','Ground',95,109,105);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Chimchar','Fire','',44,58,44),
 	 ('Monferno','Fire','Fighting',64,78,52),
 	 ('Infernape','Fire','Fighting',76,104,71),
@@ -553,7 +549,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Staravia','Normal','Flying',55,75,50),
 	 ('Staraptor','Normal','Flying',85,120,70),
 	 ('Bidoof','Normal','',59,45,40);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Bibarel','Normal','Water',79,85,60),
 	 ('Kricketot','Bug','',37,25,41),
 	 ('Kricketune','Bug','',77,85,51),
@@ -564,7 +560,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Roserade','Grass','Poison',60,70,65),
 	 ('Cranidos','Rock','',67,125,40),
 	 ('Rampardos','Rock','',97,165,60);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Shieldon','Rock','Steel',30,42,118),
 	 ('Bastiodon','Rock','Steel',60,52,168),
 	 ('Burmy','Bug','',40,29,45),
@@ -575,7 +571,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Combee','Bug','Flying',30,30,42),
 	 ('Vespiquen','Bug','Flying',70,80,102),
 	 ('Pachirisu','Electric','',60,45,70);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Buizel','Water','',55,65,35),
 	 ('Floatzel','Water','',85,105,55),
 	 ('Cherubi','Grass','',45,35,45),
@@ -586,7 +582,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Drifloon','Ghost','Flying',90,50,34),
 	 ('Drifblim','Ghost','Flying',150,80,44),
 	 ('Buneary','Normal','',55,66,44);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Lopunny','Normal','',65,76,84),
 	 ('Mega Lopunny','Normal','Fighting',65,136,94),
 	 ('Mismagius','Ghost','',60,60,60),
@@ -597,7 +593,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Stunky','Poison','Dark',63,63,47),
 	 ('Skuntank','Poison','Dark',103,93,67),
 	 ('Bronzor','Steel','Psychic',57,24,86);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Bronzong','Steel','Psychic',67,89,116),
 	 ('Bonsly','Rock','',50,80,95),
 	 ('Mime Jr.','Psychic','Fairy',20,25,45),
@@ -608,7 +604,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Gabite','Dragon','Ground',68,90,65),
 	 ('Garchomp','Dragon','Ground',108,130,95),
 	 ('Mega Garchomp','Dragon','Ground',108,170,115);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Munchlax','Normal','',135,85,40),
 	 ('Riolu','Fighting','',40,70,40),
 	 ('Lucario','Fighting','Steel',70,110,70),
@@ -619,7 +615,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Drapion','Poison','Dark',70,90,110),
 	 ('Croagunk','Poison','Fighting',48,61,40),
 	 ('Toxicroak','Poison','Fighting',83,106,65);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Carnivine','Grass','',74,100,72),
 	 ('Finneon','Water','',49,49,56),
 	 ('Lumineon','Water','',69,69,76),
@@ -630,7 +626,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Weavile','Dark','Ice',70,120,65),
 	 ('Magnezone','Electric','Steel',70,70,115),
 	 ('Lickilicky','Normal','',110,85,95);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Rhyperior','Ground','Rock',115,140,130),
 	 ('Tangrowth','Grass','',100,100,125),
 	 ('Electivire','Electric','',75,123,67),
@@ -641,7 +637,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Glaceon','Ice','',65,60,110),
 	 ('Gliscor','Ground','Flying',75,95,125),
 	 ('Mamoswine','Ice','Ground',110,130,80);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Porygon-Z','Normal','',85,80,70),
 	 ('Gallade','Psychic','Fighting',68,125,65),
 	 ('Mega Gallade','Psychic','Fighting',68,165,95),
@@ -652,7 +648,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Heat Rotom','Electric','Fire',50,65,107),
 	 ('Wash Rotom','Electric','Water',50,65,107),
 	 ('Frost Rotom','Electric','Ice',50,65,107);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Fan Rotom','Electric','Flying',50,65,107),
 	 ('Mow Rotom','Electric','Grass',50,65,107),
 	 ('Uxie','Psychic','',75,75,130),
@@ -663,7 +659,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Heatran','Fire','Steel',91,90,106),
 	 ('Regigigas','Normal','',110,160,110),
 	 ('Giratina Altered Forme','Ghost','Dragon',150,100,120);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Giratina Origin Forme','Ghost','Dragon',150,120,100),
 	 ('Cresselia','Psychic','',120,70,120),
 	 ('Phione','Water','',80,80,80),
@@ -674,7 +670,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Arceus','Normal','',120,120,120),
 	 ('Victini','Psychic','Fire',100,100,100),
 	 ('Snivy','Grass','',45,45,55);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Servine','Grass','',60,60,75),
 	 ('Serperior','Grass','',75,75,95),
 	 ('Tepig','Fire','',65,63,45),
@@ -685,7 +681,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Samurott','Water','',95,100,85),
 	 ('Patrat','Normal','',45,55,39),
 	 ('Watchog','Normal','',60,85,69);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Lillipup','Normal','',45,60,45),
 	 ('Herdier','Normal','',65,80,65),
 	 ('Stoutland','Normal','',85,110,90),
@@ -696,7 +692,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Pansear','Fire','',50,53,48),
 	 ('Simisear','Fire','',75,98,63),
 	 ('Panpour','Water','',50,53,48);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Simipour','Water','',75,98,63),
 	 ('Munna','Psychic','',76,25,45),
 	 ('Musharna','Psychic','',116,55,85),
@@ -707,7 +703,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Zebstrika','Electric','',75,100,63),
 	 ('Roggenrola','Rock','',55,75,85),
 	 ('Boldore','Rock','',70,105,105);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Gigalith','Rock','',85,135,130),
 	 ('Woobat','Psychic','Flying',55,45,43),
 	 ('Swoobat','Psychic','Flying',67,57,55),
@@ -718,7 +714,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Timburr','Fighting','',75,80,55),
 	 ('Gurdurr','Fighting','',85,105,85),
 	 ('Conkeldurr','Fighting','',105,140,95);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Tympole','Water','',50,50,40),
 	 ('Palpitoad','Water','Ground',75,65,55),
 	 ('Seismitoad','Water','Ground',105,95,75),
@@ -729,7 +725,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Leavanny','Bug','Grass',75,103,80),
 	 ('Venipede','Bug','Poison',30,45,59),
 	 ('Whirlipede','Bug','Poison',40,55,99);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Scolipede','Bug','Poison',60,100,89),
 	 ('Cottonee','Grass','Fairy',40,27,60),
 	 ('Whimsicott','Grass','Fairy',60,67,85),
@@ -740,7 +736,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Krokorok','Ground','Dark',60,82,45),
 	 ('Krookodile','Ground','Dark',95,117,80),
 	 ('Darumaka','Fire','',70,90,45);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Galarian Darumaka','Ice','',70,90,45),
 	 ('Darmanitan Standard Mode','Fire','',105,140,55),
 	 ('Galarian Darmanitan Standard Mode','Ice','',105,140,55),
@@ -751,7 +747,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Crustle','Bug','Rock',70,95,125),
 	 ('Scraggy','Dark','Fighting',50,75,70),
 	 ('Scrafty','Dark','Fighting',65,90,115);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Sigilyph','Psychic','Flying',72,58,80),
 	 ('Yamask','Ghost','',38,30,85),
 	 ('Galarian Yamask','Ground','Ghost',38,55,85),
@@ -762,7 +758,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Archeops','Rock','Flying',75,140,65),
 	 ('Trubbish','Poison','',50,50,62),
 	 ('Garbodor','Poison','',80,95,82);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Gigantamax Garbodor','Poison','',80,95,82),
 	 ('Zorua','Dark','',40,65,40),
 	 ('Zoroark','Dark','',60,105,60),
@@ -773,7 +769,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Gothitelle','Psychic','',70,55,95),
 	 ('Solosis','Psychic','',45,30,40),
 	 ('Duosion','Psychic','',65,40,50);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Reuniclus','Psychic','',110,65,75),
 	 ('Ducklett','Water','Flying',62,44,50),
 	 ('Swanna','Water','Flying',75,87,63),
@@ -784,7 +780,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Sawsbuck','Normal','Grass',80,100,70),
 	 ('Emolga','Electric','Flying',55,75,60),
 	 ('Karrablast','Bug','',50,75,45);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Escavalier','Bug','Steel',70,135,105),
 	 ('Foongus','Grass','Poison',69,55,45),
 	 ('Amoonguss','Grass','Poison',114,85,70),
@@ -795,7 +791,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Galvantula','Bug','Electric',70,77,60),
 	 ('Ferroseed','Grass','Steel',44,50,91),
 	 ('Ferrothorn','Grass','Steel',74,94,131);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Klink','Steel','',40,55,70),
 	 ('Klang','Steel','',60,80,95),
 	 ('Klinklang','Steel','',60,100,115),
@@ -806,7 +802,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Beheeyem','Psychic','',75,75,75),
 	 ('Litwick','Ghost','Fire',50,30,55),
 	 ('Lampent','Ghost','Fire',60,40,60);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Chandelure','Ghost','Fire',60,55,90),
 	 ('Axew','Dragon','',46,87,60),
 	 ('Fraxure','Dragon','',66,117,70),
@@ -816,8 +812,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Cryogonal','Ice','',70,50,30),
 	 ('Shelmet','Bug','',50,40,85),
 	 ('Accelgor','Bug','',80,70,40),
-	 ('Stunfisk','Ground','Electric',109,66,84);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Skwovet','Normal','',70,55,55);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Stunfisk','Ground','Electric',109,66,84),
 	 ('Galarian Stunfisk','Ground','Steel',109,81,99),
 	 ('Mienfoo','Fighting','',45,85,50),
 	 ('Mienshao','Fighting','',65,125,60),
@@ -826,9 +823,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Golurk','Ground','Ghost',89,124,80),
 	 ('Pawniard','Dark','Steel',45,85,70),
 	 ('Bisharp','Dark','Steel',65,125,100),
-	 ('Bouffalant','Normal','',95,110,95),
-	 ('Rufflet','Normal','Flying',70,83,50);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Bouffalant','Normal','',95,110,95);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Rufflet','Normal','Flying',70,83,50),
 	 ('Braviary','Normal','Flying',100,123,75),
 	 ('Vullaby','Dark','Flying',70,55,75),
 	 ('Mandibuzz','Dark','Flying',110,65,105),
@@ -837,9 +834,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Deino','Dark','Dragon',52,65,50),
 	 ('Zweilous','Dark','Dragon',72,85,70),
 	 ('Hydreigon','Dark','Dragon',92,105,90),
-	 ('Larvesta','Bug','Fire',55,85,55),
-	 ('Volcarona','Bug','Fire',85,60,65);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Larvesta','Bug','Fire',55,85,55);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Volcarona','Bug','Fire',85,60,65),
 	 ('Cobalion','Steel','Fighting',91,90,129),
 	 ('Terrakion','Rock','Fighting',91,129,90),
 	 ('Virizion','Grass','Fighting',91,90,72),
@@ -848,9 +845,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Thundurus Incarnate Forme','Electric','Flying',79,115,70),
 	 ('Thundurus Therian Forme','Electric','Flying',79,105,70),
 	 ('Reshiram','Dragon','Fire',100,120,100),
-	 ('Zekrom','Dragon','Electric',100,150,120),
-	 ('Landorus Incarnate Forme','Ground','Flying',89,125,90);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Zekrom','Dragon','Electric',100,150,120);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Landorus Incarnate Forme','Ground','Flying',89,125,90),
 	 ('Landorus Therian Forme','Ground','Flying',89,145,90),
 	 ('Kyurem','Dragon','Ice',125,130,90),
 	 ('Black Kyurem','Dragon','Ice',125,170,100),
@@ -859,9 +856,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Keldeo Resolute Forme','Water','Fighting',91,72,90),
 	 ('Meloetta Aria Forme','Normal','Psychic',100,77,77),
 	 ('Meloetta Pirouette Forme','Normal','Fighting',100,128,90),
-	 ('Genesect','Bug','Steel',71,120,95),
-	 ('Chespin','Grass','',56,61,65);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Genesect','Bug','Steel',71,120,95);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Chespin','Grass','',56,61,65),
 	 ('Quilladin','Grass','',61,78,95),
 	 ('Chesnaught','Grass','Fighting',88,107,122),
 	 ('Fennekin','Fire','',40,45,40),
@@ -870,9 +867,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Froakie','Water','',41,56,40),
 	 ('Frogadier','Water','',54,63,52),
 	 ('Greninja','Water','Dark',72,95,67),
-	 ('Ash-Greninja','Water','Dark',72,145,67),
-	 ('Bunnelby','Normal','',38,36,38);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Ash-Greninja','Water','Dark',72,145,67);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Bunnelby','Normal','',38,36,38),
 	 ('Diggersby','Normal','Ground',85,56,77),
 	 ('Fletchling','Normal','Flying',45,50,43),
 	 ('Fletchinder','Fire','Flying',62,73,55),
@@ -881,9 +878,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Spewpa','Bug','',45,22,60),
 	 ('Vivillon','Bug','Flying',80,52,50),
 	 ('Litleo','Fire','Normal',62,50,58),
-	 ('Pyroar','Fire','Normal',86,68,72),
-	 ('Flabébé','Fairy','',44,38,39);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Pyroar','Fire','Normal',86,68,72);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Flabébé','Fairy','',44,38,39),
 	 ('Floette','Fairy','',54,45,47),
 	 ('Florges','Fairy','',78,65,68),
 	 ('Skiddo','Grass','',66,65,48),
@@ -892,9 +889,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Pangoro','Fighting','Dark',95,124,78),
 	 ('Furfrou','Normal','',75,80,60),
 	 ('Espurr','Psychic','',62,48,54),
-	 ('Meowstic Male','Psychic','',74,48,76),
-	 ('Meowstic Female','Psychic','',74,48,76);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Meowstic Male','Psychic','',74,48,76);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Meowstic Female','Psychic','',74,48,76),
 	 ('Honedge','Steel','Ghost',45,80,100),
 	 ('Doublade','Steel','Ghost',59,110,150),
 	 ('Aegislash Blade Forme','Steel','Ghost',60,150,50),
@@ -903,9 +900,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Aromatisse','Fairy','',101,72,72),
 	 ('Swirlix','Fairy','',62,48,66),
 	 ('Slurpuff','Fairy','',82,80,86),
-	 ('Inkay','Dark','Psychic',53,54,53),
-	 ('Malamar','Dark','Psychic',86,92,88);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Inkay','Dark','Psychic',53,54,53);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Malamar','Dark','Psychic',86,92,88),
 	 ('Binacle','Rock','Water',42,52,67),
 	 ('Barbaracle','Rock','Water',72,105,115),
 	 ('Skrelp','Poison','Water',50,60,60),
@@ -914,9 +911,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Clawitzer','Water','',71,73,88),
 	 ('Helioptile','Electric','Normal',44,38,33),
 	 ('Heliolisk','Electric','Normal',62,55,52),
-	 ('Tyrunt','Rock','Dragon',58,89,77),
-	 ('Tyrantrum','Rock','Dragon',82,121,119);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Tyrunt','Rock','Dragon',58,89,77);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Tyrantrum','Rock','Dragon',82,121,119),
 	 ('Amaura','Rock','Ice',77,59,50),
 	 ('Aurorus','Rock','Ice',123,77,72),
 	 ('Sylveon','Fairy','',95,65,65),
@@ -925,9 +922,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Carbink','Rock','Fairy',50,50,150),
 	 ('Goomy','Dragon','',45,50,35),
 	 ('Sliggoo','Dragon','',68,75,53),
-	 ('Goodra','Dragon','',90,100,70),
-	 ('Klefki','Steel','Fairy',57,80,91);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Goodra','Dragon','',90,100,70);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Klefki','Steel','Fairy',57,80,91),
 	 ('Phantump','Ghost','Grass',43,70,48),
 	 ('Trevenant','Ghost','Grass',85,110,76),
 	 ('Pumpkaboo Average Size','Ghost','Grass',49,66,70),
@@ -936,9 +933,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Pumpkaboo Super Size','Ghost','Grass',59,66,70),
 	 ('Gourgeist Average Size','Ghost','Grass',65,90,122),
 	 ('Gourgeist Small Size','Ghost','Grass',55,85,122),
-	 ('Gourgeist Large Size','Ghost','Grass',75,95,122),
-	 ('Gourgeist Super Size','Ghost','Grass',85,100,122);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Gourgeist Large Size','Ghost','Grass',75,95,122);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Gourgeist Super Size','Ghost','Grass',85,100,122),
 	 ('Bergmite','Ice','',55,69,85),
 	 ('Avalugg','Ice','',95,117,184),
 	 ('Noibat','Flying','Dragon',40,30,35),
@@ -947,9 +944,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Yveltal','Dark','Flying',126,131,95),
 	 ('Zygarde 10% Forme','Dragon','Ground',54,100,71),
 	 ('Zygarde 50% Forme','Dragon','Ground',108,100,121),
-	 ('Zygarde Complete Forme','Dragon','Ground',216,100,121),
-	 ('Diancie','Rock','Fairy',50,100,150);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Zygarde Complete Forme','Dragon','Ground',216,100,121);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Diancie','Rock','Fairy',50,100,150),
 	 ('Mega Diancie','Rock','Fairy',50,160,110),
 	 ('Hoopa Confined','Psychic','Ghost',80,110,60),
 	 ('Hoopa Unbound','Psychic','Dark',80,160,60),
@@ -958,9 +955,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Dartrix','Grass','Flying',78,75,75),
 	 ('Decidueye','Grass','Ghost',78,107,75),
 	 ('Litten','Fire','',45,65,40),
-	 ('Torracat','Fire','',65,85,50),
-	 ('Incineroar','Fire','Dark',95,115,90);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Torracat','Fire','',65,85,50);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Incineroar','Fire','Dark',95,115,90),
 	 ('Popplio','Water','',50,54,54),
 	 ('Brionne','Water','',60,69,69),
 	 ('Primarina','Water','Fairy',80,74,74),
@@ -969,9 +966,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Toucannon','Normal','Flying',80,120,75),
 	 ('Yungoos','Normal','',48,70,30),
 	 ('Gumshoos','Normal','',88,110,60),
-	 ('Grubbin','Bug','',47,62,45),
-	 ('Charjabug','Bug','Electric',57,82,95);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Grubbin','Bug','',47,62,45);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Charjabug','Bug','Electric',57,82,95),
 	 ('Vikavolt','Bug','Electric',77,70,90),
 	 ('Crabrawler','Fighting','',47,82,57),
 	 ('Crabominable','Fighting','Ice',97,132,77),
@@ -980,9 +977,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Oricorio P''au Style','Psychic','Flying',75,70,70),
 	 ('Oricorio Sensu Style','Ghost','Flying',75,70,70),
 	 ('Cutiefly','Bug','Fairy',40,45,40),
-	 ('Ribombee','Bug','Fairy',60,55,60),
-	 ('Rockruff','Rock','',45,65,40);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Ribombee','Bug','Fairy',60,55,60);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Rockruff','Rock','',45,65,40),
 	 ('Lycanroc Midday Forme','Rock','',75,115,65),
 	 ('Lycanroc Midnight Forme','Rock','',85,115,75),
 	 ('Lycanroc Dusk Forme','Rock','',75,117,65),
@@ -991,9 +988,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Mareanie','Poison','Water',50,53,62),
 	 ('Toxapex','Poison','Water',50,63,152),
 	 ('Mudbray','Ground','',70,100,70),
-	 ('Mudsdale','Ground','',100,125,100),
-	 ('Dewpider','Water','Bug',38,40,52);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Mudsdale','Ground','',100,125,100);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Dewpider','Water','Bug',38,40,52),
 	 ('Araquanid','Water','Bug',68,70,92),
 	 ('Fomantis','Grass','',40,55,35),
 	 ('Lurantis','Grass','',70,105,90),
@@ -1002,9 +999,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Salandit','Poison','Fire',48,44,40),
 	 ('Salazzle','Poison','Fire',68,64,60),
 	 ('Stufful','Normal','Fighting',70,75,50),
-	 ('Bewear','Normal','Fighting',120,125,80),
-	 ('Bounsweet','Grass','',42,30,38);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Bewear','Normal','Fighting',120,125,80);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Bounsweet','Grass','',42,30,38),
 	 ('Steenee','Grass','',52,40,48),
 	 ('Tsareena','Grass','',72,120,98),
 	 ('Comfey','Fairy','',51,52,90),
@@ -1013,9 +1010,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Wimpod','Bug','Water',25,35,40),
 	 ('Golisopod','Bug','Water',75,125,140),
 	 ('Sandygast','Ghost','Ground',55,55,80),
-	 ('Palossand','Ghost','Ground',85,75,110),
-	 ('Pyukumuku','Water','',55,60,130);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Palossand','Ghost','Ground',85,75,110);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Pyukumuku','Water','',55,60,130),
 	 ('Type: Null','Normal','',95,95,95),
 	 ('Silvally','Normal','',95,95,95),
 	 ('Minior Meteor Forme','Rock','Flying',60,60,100),
@@ -1024,9 +1021,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Turtonator','Fire','Dragon',60,78,135),
 	 ('Togedemaru','Electric','Steel',65,98,63),
 	 ('Mimikyu','Ghost','Fairy',55,90,80),
-	 ('Bruxish','Water','Psychic',68,105,70),
-	 ('Drampa','Normal','Dragon',78,60,85);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Bruxish','Water','Psychic',68,105,70);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Drampa','Normal','Dragon',78,60,85),
 	 ('Dhelmise','Ghost','Grass',70,131,100),
 	 ('Jangmo-o','Dragon','',45,55,65),
 	 ('Hakamo-o','Dragon','Fighting',55,75,90),
@@ -1035,9 +1032,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Tapu Lele','Psychic','Fairy',70,85,75),
 	 ('Tapu Bulu','Grass','Fairy',70,130,115),
 	 ('Tapu Fini','Water','Fairy',70,75,115),
-	 ('Cosmog','Psychic','',43,29,31),
-	 ('Cosmoem','Psychic','',43,29,131);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Cosmog','Psychic','',43,29,31);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Cosmoem','Psychic','',43,29,131),
 	 ('Solgaleo','Psychic','Steel',137,137,107),
 	 ('Lunala','Psychic','Ghost',137,113,89),
 	 ('Nihilego','Rock','Poison',109,53,47),
@@ -1046,9 +1043,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Xurkitree','Electric','',83,89,71),
 	 ('Celesteela','Steel','Flying',97,101,103),
 	 ('Kartana','Grass','Steel',59,181,131),
-	 ('Guzzlord','Dark','Dragon',223,101,53),
-	 ('Necrozma','Psychic','',97,107,101);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Guzzlord','Dark','Dragon',223,101,53);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Necrozma','Psychic','',97,107,101),
 	 ('Dusk Mane Necrozma','Psychic','Steel',97,157,127),
 	 ('Dawn Wings Necrozma','Psychic','Ghost',97,113,109),
 	 ('Ultra Necrozma','Psychic','Dragon',97,167,97),
@@ -1057,9 +1054,9 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Poipole','Poison','',67,73,67),
 	 ('Naganadel','Poison','Dragon',73,73,73),
 	 ('Stakataka','Rock','Steel',61,131,211),
-	 ('Blacephalon','Fire','Ghost',53,127,53),
-	 ('Zeraora','Electric','',88,112,75);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Blacephalon','Fire','Ghost',53,127,53);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Zeraora','Electric','',88,112,75),
 	 ('Meltan','Steel','',46,65,65),
 	 ('Melmetal','Steel','',135,143,143),
 	 ('Gigantamax Melmetal','Steel','',135,143,143),
@@ -1068,20 +1065,19 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Rillaboom','Grass','',100,125,90),
 	 ('Gigantamax Rillaboom','Grass','',100,125,90),
 	 ('Scorbunny','Fire','',50,71,40),
-	 ('Raboot','Fire','',65,86,60),
-	 ('Cinderace','Fire','',80,116,75);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Raboot','Fire','',65,86,60);
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+	 ('Cinderace','Fire','',80,116,75),
 	 ('Gigantamax Cinderace','Fire','',80,116,75),
 	 ('Sobble','Water','',50,40,40),
 	 ('Drizzile','Water','',65,60,55),
 	 ('Inteleon','Water','',70,85,65),
 	 ('Gigantamax Inteleon','Water','',70,85,65),
-	 ('Skwovet','Normal','',70,55,55),
 	 ('Greedent','Normal','',120,95,95),
 	 ('Rookidee','Flying','',38,47,35),
 	 ('Corvisquire','Flying','',68,67,55),
 	 ('Corviknight','Flying','Steel',98,87,105);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Gigantamax Corviknight','Flying','Steel',98,87,105),
 	 ('Blipbug','Bug','',25,20,20),
 	 ('Dottler','Bug','Psychic',50,35,80),
@@ -1092,7 +1088,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Gossifleur','Grass','',40,40,60),
 	 ('Eldegoss','Graass','',60,50,90),
 	 ('Wooloo','Normal','',42,40,55);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Dubwool','Normal','',72,80,100),
 	 ('Chewtle','Water','',50,64,50),
 	 ('Drednaw','Water','Rock',90,115,90),
@@ -1103,7 +1099,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Carkol','Rock','Fire',80,60,90),
 	 ('Coalossal','Rock','Fire',110,80,120),
 	 ('Gigantamax Coalossal','Rock','Fire',110,80,120);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Applin','Grass','Dragon',40,40,80),
 	 ('Flapple','Grass','Dragon',70,110,80),
 	 ('Gigantamax Flapple','Grass','Dragon',70,110,80),
@@ -1114,7 +1110,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Gigantamax Sandaconda','Ground','',72,107,125),
 	 ('Cramorant','Flying','Water',70,85,55),
 	 ('Arrokuda','Water','',41,63,40);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Barraskewda','Water','',61,123,60),
 	 ('Toxel','Electric','Poison',40,38,35),
 	 ('Toxtricity Amped Forme','Electric','Poison',75,98,70),
@@ -1125,7 +1121,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Gigantamax Centiskorch','Fire','Bug',100,115,65),
 	 ('Clobbopus','Fighting','',50,68,60),
 	 ('Grapploct','Fighting','',80,118,90);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Sinistea','Ghost','',40,45,45),
 	 ('Polteageist','Ghost','',60,65,65),
 	 ('Hatenna','Psychic','',42,30,45),
@@ -1136,7 +1132,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Morgrem','Dark','Fairy',65,60,45),
 	 ('Grimmsnarl','Dark','Fairy',95,120,65),
 	 ('Gigantamax Grimmsnarl','Dark','Fairy',95,120,65);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Obstagoon','Dark','Normal',93,90,101),
 	 ('Perrserker','Steel','',70,110,100),
 	 ('Cursola','Ghost','',60,95,50),
@@ -1147,7 +1143,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Alcremie','Fairy','',65,60,75),
 	 ('Gigantamax Alcremie','Fairy','',65,60,75),
 	 ('Falinks','Fighting','',65,100,100);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Pincurchin','Electric','',48,101,95),
 	 ('Snom','Ice','Bug',30,25,35),
 	 ('Frosmoth','Ice','Bug',70,65,60),
@@ -1158,7 +1154,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Indeedee Female','Psychic','Normal',70,55,65),
 	 ('Morpeko Full Belly Mode','Electric','Dark',58,95,58),
 	 ('Morpeko Hangry Mode','Electric','Dark',58,95,58);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Cufant','Steel','',72,80,49),
 	 ('Copperajah','Steel','',122,130,69),
 	 ('Gigantamax Copperajah','Steel','',122,130,69),
@@ -1169,7 +1165,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Duraludon','Steel','Dragon',70,95,115),
 	 ('Gigantamax Duraludon','Steel','Dragon',70,95,115),
 	 ('Dreepy','Dragon','Ghost',28,60,30);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Drakloak','Dragon','Ghost',68,80,50),
 	 ('Dragapult','Dragon','Ghost',88,120,75),
 	 ('Zacian Hero of Many Battles','Fairy','',92,130,115),
@@ -1180,7 +1176,7 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Eternamax Eternatus','Poison','Dragon',255,115,250),
 	 ('Kubfu','Fighting','',60,90,60),
 	 ('Urshifu Single Strike Style','Fighting','Dark',100,130,100);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Gigantamax Urshifu Single Strike Style','Fighting','Dark',100,130,100),
 	 ('Urshifu Rapid Strike Style','Fighting','Water',100,130,100),
 	 ('Gigantamax Urshifu Rapid Strike Style','Fighting','Water',100,130,100),
@@ -1191,6 +1187,6 @@ INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUE
 	 ('Glastrier','Ice','',100,145,130),
 	 ('Spectrier','Ghost','',100,65,60),
 	 ('Calyrex','Psychic','Grass',100,80,80);
-INSERT INTO pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
+INSERT INTO public.pokemon (nom,type_primaire,type_secondaire,pv,attaque,defense) VALUES
 	 ('Ice Rider Calyrex','Psychic','Ice',100,165,150),
 	 ('Shadow Rider Calyrex','Psychic','Ghost',100,85,80);
