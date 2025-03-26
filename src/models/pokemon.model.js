@@ -1,10 +1,10 @@
 // À ajuster selon la structure
-import db from '../config/db.js';
+import db from '../config/db_pg.js';
 
 const trouvePokemon = (id) => {
     return new Promise((resolve, reject) => {
 
-        const requete = `SELECT * FROM pokemon WHERE id = ?`; // On prépare la requête SQL
+        const requete = `SELECT * FROM pokemon WHERE id = $1`; // On prépare la requête SQL
         const params = [id]
         // Le paramètre sera ajouter à query si la requete est préparée avec where id = ?
         db.query(requete, params, (erreur, resultat) => {
@@ -14,7 +14,7 @@ const trouvePokemon = (id) => {
                 reject(erreur);
             }
             // Sinon je retourne le résultat sans faire de validation, c'est possible que le résultat soit vide
-            resolve(resultat);
+            resolve(resultat.rows);
         });
     });
 };
@@ -27,7 +27,7 @@ const trouveTousLesPokemons = () => {
                 console.log(`Erreur sqlState ${erreur.sqlState} : ${erreur.sqlMessage}`);
                 reject(erreur);
             }
-            resolve(resultat);
+            resolve(resultat.rows);
         });
     });
 }
@@ -42,21 +42,21 @@ const ajouterUnPokemon = (pokemon) => {
                 console.log(`Erreur sqlState ${erreur.sqlState} : ${erreur.sqlMessage}`);
                 reject(erreur);
             }
-            resolve(resultat);
+            resolve(resultat.rows);
         });
     });
 }
 
 const modifierUnPokemon = (id, pokemon) => {
     return new Promise((resolve, reject) => {
-        const requete = `UPDATE pokemon SET nom = ?, type_primaire = ?, type_secondaire = ?, pv = ?, attaque = ?, defense = ? WHERE id = ?`;
+        const requete = `UPDATE pokemon SET nom = $1, type_primaire = $1, type_secondaire = $1, pv = $1, attaque = $1, defense = $1 WHERE id = $1`;
         const params = [pokemon.nom, pokemon.type_primaire, pokemon.type_secondaire, pokemon.pv, pokemon.attaque, pokemon.defense, id];
         db.query(requete, params, (erreur, resultat) => {
             if (erreur) {
                 console.log(`Erreur sqlState ${erreur.sqlState} : ${erreur.sqlMessage}`);
                 reject(erreur);
             }
-            resolve(resultat);
+            resolve(resultat.rows);
         });
     });
 }
