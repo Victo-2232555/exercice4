@@ -1,7 +1,11 @@
 import express from 'express';
+import cors from 'cors';
 import pokemonRoute from './src/routes/pokemon.route.js';
 // Créer une application express
 const app = express();
+
+// Déclaration des middlewares
+app.use(cors());
 
 // Importer les middlewares
 app.use(express.json());
@@ -17,3 +21,6 @@ const PORT = process.env.PORT || 5010;
 app.listen(PORT, () => {
     console.log(`Serveur démarré sur le port ${PORT}`);
 });
+
+
+
